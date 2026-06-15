@@ -29,10 +29,10 @@ com.example.newbeemall.app-core-1.13.0-27 C:\Users\31247\.gradle\caches\8.11.1\t
 com.example.newbeemall.app-lifecycle-viewmodel-savedstate-2.6.2-28 C:\Users\31247\.gradle\caches\8.11.1\transforms\e35055e89575638085cbf981de51c0bc\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
 com.example.newbeemall.app-viewpager2-1.1.0-29 C:\Users\31247\.gradle\caches\8.11.1\transforms\e508e4b2b37ef9cdaa649be459add1f3\transformed\viewpager2-1.1.0\res
 com.example.newbeemall.app-lifecycle-process-2.6.2-30 C:\Users\31247\.gradle\caches\8.11.1\transforms\f919abad2de625ada1a39493bf9d7c2f\transformed\lifecycle-process-2.6.2\res
-com.example.newbeemall.app-pngs-31 C:\Users\31247\Desktop\新蜂商城\app\build\generated\res\pngs\debug
-com.example.newbeemall.app-resValues-32 C:\Users\31247\Desktop\新蜂商城\app\build\generated\res\resValues\debug
-com.example.newbeemall.app-packageDebugResources-33 C:\Users\31247\Desktop\新蜂商城\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.newbeemall.app-packageDebugResources-34 C:\Users\31247\Desktop\新蜂商城\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.newbeemall.app-debug-35 C:\Users\31247\Desktop\新蜂商城\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.newbeemall.app-debug-36 C:\Users\31247\Desktop\新蜂商城\app\src\debug\res
-com.example.newbeemall.app-main-37 C:\Users\31247\Desktop\新蜂商城\app\src\main\res
+com.example.newbeemall.app-pngs-31 C:\Users\31247\Desktop\NewBeeMail\app\build\generated\res\pngs\debug
+com.example.newbeemall.app-resValues-32 C:\Users\31247\Desktop\NewBeeMail\app\build\generated\res\resValues\debug
+com.example.newbeemall.app-packageDebugResources-33 C:\Users\31247\Desktop\NewBeeMail\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.newbeemall.app-packageDebugResources-34 C:\Users\31247\Desktop\NewBeeMail\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.newbeemall.app-debug-35 C:\Users\31247\Desktop\NewBeeMail\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.newbeemall.app-debug-36 C:\Users\31247\Desktop\NewBeeMail\app\src\debug\res
+com.example.newbeemall.app-main-37 C:\Users\31247\Desktop\NewBeeMail\app\src\main\res

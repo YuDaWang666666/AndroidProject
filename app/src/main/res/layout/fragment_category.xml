@@ -20,6 +20,8 @@
             android:layout_height="32dp"
             android:layout_centerVertical="true"
             android:background="@drawable/bg_search_bar"
+            android:clickable="true"
+            android:focusable="true"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="6dp"
             android:gravity="center_vertical"

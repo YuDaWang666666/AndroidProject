@@ -2949,23 +2949,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\31247\\Desktop\\新蜂商城\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "41",
-                        "endOffsets": "92"
-                    },
-                    "to": {
-                        "startLines": "1995",
-                        "startColumns": "4",
-                        "startOffsets": "131800",
-                        "endColumns": "41",
-                        "endOffsets": "131837"
-                    }
-                },
-                {
                     "source": "C:\\Users\\31247\\.gradle\\caches\\8.11.1\\transforms\\8430a9065090adc2c434f8cdec6320c2\\transformed\\drawerlayout-1.1.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -3033,23 +3016,6 @@
                         "startOffsets": "122564,124787",
                         "endColumns": "41,59",
                         "endOffsets": "122601,124842"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\31247\\Desktop\\新蜂商城\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "7,6,4,2,3,12,11,10,8,9,5",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "279,239,153,55,102,508,464,420,324,371,199",
-                        "endColumns": "44,39,45,46,50,41,43,43,46,48,39",
-                        "endOffsets": "319,274,194,97,148,545,503,459,366,415,234"
-                    },
-                    "to": {
-                        "startLines": "639,644,659,660,661,701,947,966,967,968,971",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "32618,32982,34043,34089,34136,36890,55436,56765,56809,56856,57026",
-                        "endColumns": "44,39,45,46,50,41,43,43,46,48,39",
-                        "endOffsets": "32658,33017,34084,34131,34182,36927,55475,56804,56851,56900,57061"
                     }
                 },
                 {
@@ -3203,7 +3169,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\31247\\Desktop\\新蜂商城\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "C:\\Users\\31247\\Desktop\\NewBeeMail\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "41",
+                        "endOffsets": "92"
+                    },
+                    "to": {
+                        "startLines": "1995",
+                        "startColumns": "4",
+                        "startOffsets": "131800",
+                        "endColumns": "41",
+                        "endOffsets": "131837"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\31247\\Desktop\\NewBeeMail\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
                         "startLines": "2,9",
                         "startColumns": "4,4",
@@ -3219,6 +3202,23 @@
                         "endLines": "6561,6566",
                         "endColumns": "12,12",
                         "endOffsets": "460469,460785"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\31247\\Desktop\\NewBeeMail\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "7,6,4,2,3,12,11,10,8,9,5",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "279,239,153,55,102,508,464,420,324,371,199",
+                        "endColumns": "44,39,45,46,50,41,43,43,46,48,39",
+                        "endOffsets": "319,274,194,97,148,545,503,459,366,415,234"
+                    },
+                    "to": {
+                        "startLines": "639,644,659,660,661,701,947,966,967,968,971",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "32618,32982,34043,34089,34136,36890,55436,56765,56809,56856,57026",
+                        "endColumns": "44,39,45,46,50,41,43,43,46,48,39",
+                        "endOffsets": "32658,33017,34084,34131,34182,36927,55475,56804,56851,56900,57061"
                     }
                 }
             ]

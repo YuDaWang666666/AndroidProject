@@ -19,7 +19,7 @@ import com.example.newbeemall.model.CategoryInfo;
 import com.example.newbeemall.model.GoodsInfo;
 import com.example.newbeemall.util.Constants;
 import com.example.newbeemall.util.HttpUtil;
-import com.example.newbeemall.util.ToastUtil;
+import com.example.newbeemall.util.TokenManager;
 import com.example.newbeemall.view.MyGridView;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,6 +35,16 @@ public class CategoryFragment extends Fragment {
     private ArrayAdapter<String> categoryAdapter;
     private GoodsGridAdapter goodsAdapter;
     private List<GoodsInfo> goodsList = new ArrayList<>();
+
+    // 从首页跳转时，暂存要选中的分类 ID
+    private static int pendingCategoryId = -1;
+
+    /**
+     * 首页调用此方法，设置要跳转到的分类 ID
+     */
+    public static void setPendingCategory(int categoryId) {
+        pendingCategoryId = categoryId;
+    }
 
     @Nullable
     @Override
@@ -64,8 +74,8 @@ public class CategoryFragment extends Fragment {
 
         lvCategory.setOnItemClickListener((parent, v, position, id) -> {
             if (position < categoryList.size()) {
-                String categoryName = categoryList.get(position).getCategoryName();
-                searchByCategory(categoryName);
+                CategoryInfo selected = categoryList.get(position);
+                loadGoodsByCategory(selected.getCategoryId(), selected.getCategoryName());
             }
         });
 
@@ -85,6 +95,7 @@ public class CategoryFragment extends Fragment {
         new Thread(() -> {
             try {
                 String result = HttpUtil.get(Constants.API_CATEGORIES);
+                android.util.Log.d("Category", "分类原始数据: " + result);
                 JSONObject obj = new JSONObject(result);
                 JSONArray data = obj.optJSONArray("data");
                 categoryList.clear();
@@ -104,25 +115,80 @@ public class CategoryFragment extends Fragment {
                     getActivity().runOnUiThread(() -> {
                         categoryAdapter.notifyDataSetChanged();
                         if (!categoryList.isEmpty()) {
-                            lvCategory.setItemChecked(0, true);
-                            searchByCategory(categoryList.get(0).getCategoryName());
+                            // 检查是否有从首页传入的待选分类
+                            int targetPos = 0;
+                            if (pendingCategoryId != -1) {
+                                for (int i = 0; i < categoryList.size(); i++) {
+                                    if (categoryList.get(i).getCategoryId() == pendingCategoryId) {
+                                        targetPos = i;
+                                        break;
+                                    }
+                                }
+                                pendingCategoryId = -1; // 用完清除
+                            }
+                            lvCategory.setItemChecked(targetPos, true);
+                            lvCategory.setSelection(targetPos);
+                            CategoryInfo selected = categoryList.get(targetPos);
+                            loadGoodsByCategory(selected.getCategoryId(), selected.getCategoryName());
                         }
                     });
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                android.util.Log.e("Category", "加载分类异常", e);
             }
         }).start();
     }
 
-    private void searchByCategory(String keyword) {
-        if (getContext() == null) return;
+    /**
+     * 根据分类加载商品（关键词映射方案）
+     * 因为后端 /search?goodsCategoryId=xxx 不生效，所以用分类名映射到搜索关键词
+     */
+    private void loadGoodsByCategory(int categoryId, String categoryName) {
+        android.util.Log.d("Category", ">>> loadGoodsByCategory 被调用, id=" + categoryId + ", name=" + categoryName);
+        if (getActivity() == null) return;
+
+        // 步骤1：根据分类名称映射到搜索关键词
+        String keyword = "手机";  // 默认兜底关键词
+        if (categoryName != null && !categoryName.isEmpty()) {
+            String firstWord = categoryName.split("\\s+")[0];
+            switch (firstWord) {
+                case "家电": keyword = "手机"; break;
+                case "女装": keyword = "T恤";  break;
+                case "家具": keyword = "座椅"; break;
+                case "运动": keyword = "耳机"; break;
+                case "游戏": keyword = "小米"; break;
+                case "美妆": keyword = "口红"; break;
+                case "工具": keyword = "橡皮"; break;
+                case "鞋靴": keyword = "苹果"; break;
+                case "玩具": keyword = "MAC";  break;
+                default:     keyword = "手机"; break;
+            }
+        }
+
+        final String searchKeyword = keyword;
+        android.util.Log.d("Category", "映射关键词: " + searchKeyword);
+
+        // 步骤2：发起搜索请求
         new Thread(() -> {
             try {
-                String encodedKeyword = java.net.URLEncoder.encode(keyword, "UTF-8");
+                String encodedKeyword = java.net.URLEncoder.encode(searchKeyword, "UTF-8");
                 String url = Constants.API_SEARCH + "?pageNumber=1&keyword=" + encodedKeyword + "&orderBy=";
-                String result = HttpUtil.get(url);
+                String token = TokenManager.getToken(getActivity());
+
+                // 先尝试带 token 请求
+                String result = HttpUtil.get(url, token);
                 JSONObject obj = new JSONObject(result);
+                int resultCode = obj.optInt("resultCode", -1);
+
+                // token 无效（416），尝试不带 token
+                if (resultCode == 416) {
+                    android.util.Log.d("Category", "Token 无效，尝试不带 token");
+                    result = HttpUtil.get(url);
+                    obj = new JSONObject(result);
+                    resultCode = obj.optInt("resultCode", -1);
+                }
+
+                android.util.Log.d("Category", "resultCode=" + resultCode);
                 JSONObject data = obj.optJSONObject("data");
                 JSONArray list = data != null ? data.optJSONArray("list") : null;
                 goodsList.clear();
@@ -137,11 +203,20 @@ public class CategoryFragment extends Fragment {
                         goodsList.add(goods);
                     }
                 }
+                final int count = goodsList.size();
                 if (getActivity() != null) {
-                    getActivity().runOnUiThread(() -> goodsAdapter.notifyDataSetChanged());
+                    getActivity().runOnUiThread(() -> {
+                        goodsAdapter.notifyDataSetChanged();
+                    android.widget.Toast.makeText(getActivity(), "加载了 " + count + " 件商品", android.widget.Toast.LENGTH_SHORT).show();
+                    });
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                android.util.Log.e("Category", "异常", e);
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(() ->
+                        android.widget.Toast.makeText(getActivity(), "加载失败: " + e.getMessage(), android.widget.Toast.LENGTH_SHORT).show()
+                    );
+                }
             }
         }).start();
     }

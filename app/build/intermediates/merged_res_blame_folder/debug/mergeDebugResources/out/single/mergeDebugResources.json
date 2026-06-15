@@ -36,16 +36,16 @@
         "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\drawable\\bg_button_primary.xml"
     },
     {
-        "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_activity_address_edit.xml.flat",
-        "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\activity_address_edit.xml"
+        "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_fragment_cart.xml.flat",
+        "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\fragment_cart.xml"
     },
     {
         "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_activity_detail.xml.flat",
         "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\activity_detail.xml"
     },
     {
-        "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_fragment_cart.xml.flat",
-        "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\fragment_cart.xml"
+        "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_activity_address_edit.xml.flat",
+        "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\activity_address_edit.xml"
     },
     {
         "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -188,6 +188,10 @@
         "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\drawable\\nav_1.xml"
     },
     {
+        "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_item_category.xml.flat",
+        "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\item_category.xml"
+    },
+    {
         "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\layout\\activity_main.xml"
     },
@@ -206,10 +210,6 @@
     {
         "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\drawable_ic_cart_nav.xml.flat",
         "source": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-main-37:\\drawable\\ic_cart_nav.xml"
-    },
-    {
-        "merged": "com.example.newbeemall.app-debug-35:/layout_item_category.xml.flat",
-        "source": "com.example.newbeemall.app-main-37:/layout/item_category.xml"
     },
     {
         "merged": "C:\\Users\\31247\\.gradle\\daemon\\8.11.1\\com.example.newbeemall.app-debug-35:\\drawable_ic_launcher_foreground.xml.flat",
